@@ -3,6 +3,7 @@ package com.bilyoner.livebettingapp.controller;
 import com.bilyoner.livebettingapp.dto.MatchRequestDTO;
 import com.bilyoner.livebettingapp.dto.MatchResponseDTO;
 import com.bilyoner.livebettingapp.service.MatchService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class MatchController {
     private final MatchService matchService;
 
     @PostMapping
-    public ResponseEntity<MatchResponseDTO> addMatch(@RequestBody MatchRequestDTO matchRequestDTO) {
+    public ResponseEntity<MatchResponseDTO> addMatch(@Valid @RequestBody MatchRequestDTO matchRequestDTO) {
         return ResponseEntity.ok(matchService.addMatch(matchRequestDTO));
     }
 

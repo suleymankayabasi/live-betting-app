@@ -10,7 +10,7 @@ import java.util.Random;
 public class OddsGenerator {
 
     private final Random random = new Random();
-    private DecimalFormat decimalFormat = new DecimalFormat("0.00");
+    private final DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
     @Value("${odds.margin.min}")
     private double minMargin;

@@ -1,6 +1,5 @@
 package com.bilyoner.livebettingapp.entity;
 
-import com.bilyoner.livebettingapp.constant.BetOutcome;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,12 +25,4 @@ public class Match implements Serializable {
     private double drawOdds;
     private double awayWinOdds;
     private LocalDateTime matchStartTime;
-
-    public double getOddsForOutcome(BetOutcome outcome) {
-        return switch (outcome) {
-            case HOME_WIN -> homeWinOdds;
-            case DRAW -> drawOdds;
-            case AWAY_WIN -> awayWinOdds;
-        };
-    }
 }

@@ -3,6 +3,7 @@ package com.bilyoner.livebettingapp.controller;
 import com.bilyoner.livebettingapp.dto.CouponRequestDTO;
 import com.bilyoner.livebettingapp.dto.CouponResponseDTO;
 import com.bilyoner.livebettingapp.service.CouponService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class CouponController {
     private final CouponService couponService;
 
     @PostMapping
-    public ResponseEntity<CouponResponseDTO> createCoupon(@RequestBody CouponRequestDTO couponRequestDTO) {
+    public ResponseEntity<CouponResponseDTO> createCoupon(@Valid @RequestBody CouponRequestDTO couponRequestDTO) {
         CouponResponseDTO responseDTO;
         try {
             responseDTO = couponService.createCoupon(couponRequestDTO);

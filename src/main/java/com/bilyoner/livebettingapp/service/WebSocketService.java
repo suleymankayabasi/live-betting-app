@@ -23,5 +23,4 @@ public class WebSocketService {
             throw new RuntimeException("Failed to broadcast matches", e);
         }
     }
-
 }

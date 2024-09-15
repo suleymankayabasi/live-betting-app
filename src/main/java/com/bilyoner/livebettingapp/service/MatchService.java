@@ -28,5 +28,10 @@ public class MatchService {
         List<Match> matches = matchRepository.findAllUpcomingMatches(LocalDateTime.now());
         return matchMapper.toDTOList(matches);
     }
+
+    public Match findMatchById(Long matchId) {
+        return matchRepository.findById(matchId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid match ID: " + matchId));
+    }
 }
 

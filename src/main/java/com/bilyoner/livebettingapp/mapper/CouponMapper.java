@@ -22,7 +22,7 @@ public class CouponMapper {
         coupon.setPlayedAt(LocalDateTime.now());
         coupon.setNumberOfBets(requestDTO.getBets().size());
         coupon.setBets(requestDTO.getBets().stream()
-                .map(betRequestDTO -> betMapper.toEntity(betRequestDTO, coupon))  // Pass the coupon as a parameter
+                .map(betRequestDTO -> betMapper.toEntity(betRequestDTO, coupon))
                 .collect(Collectors.toList()));
         return coupon;
     }
