@@ -107,13 +107,13 @@ Bu proje, kullanıcıların maç bültenindeki karşılaşmalar için aynı bahi
 
 4. **Kuponu ID'ye Göre Getir (GET):**
 
-   - URL: `http://localhost:8080/index.html`
+   - URL: `http://localhost:8080/api/coupons/{couponId}`
    - Bu endpoint, belirtilen ID'ye sahip kuponun detaylarını döner.
     
 5. **Canlı Bahis Oranlarını:**
 
    - URL: `http://localhost:8080/index.html`
-
+   - Bu url, active olan maçların canlı bahis oranlarını döner.
 ## Yapılandırmalar
 
 1. **Dinamik Oran Güncelleme Süresi:**
