@@ -26,6 +26,7 @@ Bu proje, kullanıcıların maç bültenindeki karşılaşmalar için aynı bahi
 - **Spring Boot 3.X**
 - **Java 17/21**
 - **H2 Database**
+- **Web Socket**
 - **Docker**
 
 ## Uygulamayı Çalıştırma
