@@ -1,6 +1,7 @@
 package com.bilyoner.livebettingapp.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,10 +19,14 @@ public class Coupon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private LocalDateTime createdAt = LocalDateTime.now();
-    private long timeout;
+    private Long couponId;
+    private int numberOfBets;
     private double totalOdds;
+    private double stake;
+    private double potentialWinnings;
+    private LocalDateTime playedAt;
+    @Positive
+    private int repetitionCount = 1;
 
     @OneToMany(mappedBy = "coupon", cascade = CascadeType.ALL)
     private List<Bet> bets = new ArrayList<>();

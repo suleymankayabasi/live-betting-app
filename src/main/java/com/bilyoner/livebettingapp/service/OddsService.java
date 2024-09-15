@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class OddsUpdateService {
+public class OddsService {
 
     private final MatchRepository matchRepository;
     private final OddsGenerator oddsGenerator;
@@ -39,7 +39,7 @@ public class OddsUpdateService {
     private int getNumberOfMatchesToUpdate(int totalMatches) {
         Random random = new Random();
         int minMatchesToUpdate = 1;
-        int maxMatchesToUpdate = Math.min(totalMatches, 5);
+        int maxMatchesToUpdate = Math.max(minMatchesToUpdate, Math.min(totalMatches, 5));
         return random.nextInt(maxMatchesToUpdate - minMatchesToUpdate + 1) + minMatchesToUpdate;
     }
 

@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CouponRequestDTO {
-    private int numberOfBets;
+    private int repetitionCount;
     private double stake;
     private List<BetRequestDTO> bets;
 }

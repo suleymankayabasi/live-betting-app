@@ -18,13 +18,14 @@ public class Bet {
     private Long id;
     private double odds;
 
-    @ManyToOne
-    private Match match;
-
     @Enumerated(EnumType.STRING)
     private BetOutcome selectedOutcome;
 
+    @ManyToOne
+    @JoinColumn(name = "match_id")
+    private Match match;
 
     @ManyToOne
+    @JoinColumn(name = "coupon_id")
     private Coupon coupon;
 }

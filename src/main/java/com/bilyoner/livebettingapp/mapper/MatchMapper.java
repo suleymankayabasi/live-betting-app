@@ -16,6 +16,9 @@ public class MatchMapper {
         match.setLeague(dto.getLeague());
         match.setHomeTeam(dto.getHomeTeam());
         match.setAwayTeam(dto.getAwayTeam());
+        match.setHomeWinOdds(dto.getHomeWinOdds());
+        match.setDrawOdds(dto.getDrawOdds());
+        match.setAwayWinOdds(dto.getAwayWinOdds());
         match.setMatchStartTime(dto.getMatchStartTime());
         return match;
     }
