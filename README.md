@@ -34,7 +34,7 @@ Bu proje, kullanıcıların maç bültenindeki karşılaşmalar için aynı bahi
 
 1. **Proje Dizini:**
    ```bash
-   git clone https://github.com/your-repository/live-betting-app.git
+   git clone https://github.com/suleymankayabasi/live-betting-app.git
    cd live-betting-app
    ```
 
