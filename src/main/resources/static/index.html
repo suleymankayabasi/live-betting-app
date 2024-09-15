@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Canlı Maç Oranları</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Canlı Maç Oranları</h1>
+<table id="matchTable">
+    <thead>
+    <tr>
+        <th>Maç</th>
+        <th>Ev Sahibi Oranı</th>
+        <th>Beraberlik Oranı</th>
+        <th>Deplasman Oranı</th>
+        <th>Başlangıç Saati</th>
+    </tr>
+    </thead>
+    <tbody id="matchData">
+    </tbody>
+</table>
+
+<script>
+    const ws = new WebSocket('ws://localhost:8080/ws/match-updates');
+
+    ws.onmessage = function (event) {
+        const matches = JSON.parse(event.data);
+        const matchTable = document.getElementById('matchData');
+        matchTable.innerHTML = '';
+
+        matches.forEach(match => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                    <td>${match.homeTeam} vs ${match.awayTeam}</td>
+                    <td>${match.homeWinOdds.toFixed(2)}</td>
+                    <td>${match.drawOdds.toFixed(2)}</td>
+                    <td>${match.awayWinOdds.toFixed(2)}</td>
+                    <td>${new Date(match.matchStartTime).toLocaleString()}</td>
+                `;
+            matchTable.appendChild(row);
+        });
+    };
+</script>
+</body>
+</html>
